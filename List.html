@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="jquery-3.5.1.min.js"></script>
+    <script src="src/jquery-3.5.1.min.js"></script>
     <script>
+        $(() => {
+            $("#detail").load("src/List.php");	//List.phpを実行させ結果取得＆投稿一覧の欄に反映
+            $('#search_form').on('click', () => {
 
-        $(function(){
-            $("#detail").load("List.php");	//List.phpを実行させ結果取得＆投稿一覧の欄に反映
+            });
+            console.log('関数が動いとるよー')
         });
-        console.log('関数が動いとるよー')
     </script>
     <link rel="stylesheet" href="style.css">
     <title>投稿されたアイデアの一覧</title>
 </head>
+
 <body>
     <header>
         <ul>
@@ -21,12 +25,17 @@
             <li id="sub"><a id="header-link" href="form.html">アイデアを投稿する</a></li>
         </ul>
     </header>
+    <form>
+        <input id="serach_form" type="text" placeholder="キーワードを入力">
+        <button id="searchBtn">検索</button>
+    </form>
     <div id="view">
-		<h1 id="new">投稿一覧</h1>
-		<div id="detail"></div>
+        <h1 id="new">投稿一覧</h1>
+        <div id="detail"></div>
     </div>
     <div id="signage">
         <a href="form.html" class="btn btn--orange btn--radius">アイデアを投稿する</a>
     </div>
 </body>
+
 </html>
