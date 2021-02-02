@@ -10,8 +10,15 @@
             $("#detail").load("src/List.php");	//List.phpを実行させ結果取得＆投稿一覧の欄に反映
             $('#search_form').on('click', () => {
                 //検索結果表示
+                alert("ボタンが押されました！")
+                var search_form = $("#search_form").val();			//search_form ← 入力されたコメント
+                $.post(										//サーバにデータ送信
+                    "src/thread_search.php",							//プログラム名はform.php
+                    {										//以下は送信データのセット
+                        "search_form": search_form
+                    },
+                );
             });
-            console.log('関数が動いとるよー')
         });
     </script>
     <link rel="stylesheet" href="style.css">
@@ -26,7 +33,7 @@
         </ul>
     </header>
     <form>
-        <input id="serach_form" type="text" placeholder="キーワードを入力">
+        <input id="search_form" type="text" placeholder="キーワードを入力">
         <button id="searchBtn">検索</button>
     </form>
     <div id="view">
