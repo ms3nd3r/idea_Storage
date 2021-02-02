@@ -9,6 +9,7 @@ $result = $stmt->fetchall(); //$stmt.fechall();返却
 // echo '<pre>';
 // var_dump($result);
 // echo '</pre>';
+// exit;
 //デバッグ用
 
 foreach ($result as $array) {

@@ -8,16 +8,17 @@
     <script>
         $(() => {
             $("#detail").load("src/List.php");	//List.phpを実行させ結果取得＆投稿一覧の欄に反映
-            $('#search_form').on('click', () => {
+            $('#searchBtn').on('click', () => {
                 //検索結果表示
-                alert("ボタンが押されました！")
+                $('#detail').empty();
                 var search_form = $("#search_form").val();			//search_form ← 入力されたコメント
-                $.post(										//サーバにデータ送信
+                $('#detail').load(										//サーバにデータ送信
                     "src/thread_search.php",							//プログラム名はform.php
                     {										//以下は送信データのセット
                         "search_form": search_form
-                    },
+                    }
                 );
+                return false;
             });
         });
     </script>
