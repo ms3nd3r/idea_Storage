@@ -1,12 +1,36 @@
 <?php
-	date_default_timezone_set('Asia/Tokyo');
-	$dateTime = date("Y/m/d H:i");					//$dateTime ← 現在の日時
-	$idea_form = $_POST["idea_form"];					//$comment ← 受信した「comment」値
-	
-	$idea_form = str_replace("\n", "<br>", $idea_form);	//改行を<br>に置換
-	
-	$fp = fopen("../idea.txt", "a");					//ファイル「bbs.txt」を追記で開く
-	fputs($fp, "{$dateTime}\n");					//ファイルに $dateTime(日時)を書込
-	fputs($fp, "{$idea_form}\n");						//ファイルに $comment(コメ)を書込む
-	fclose($fp);									//ファイルを閉じる
-?>
+require './pdo.php';
+
+/* スレッド投稿処理 */
+
+$user_id = 1;
+/*
+ユーザーネームの取得処理
+*/
+
+$params = [
+	't_thread_id' => null,
+	't_thread_t_user_id' => $user_id,
+	't_thread_title' => $_POST['idea_form'],
+	't_thread_created_at' => null,
+	't_thread_modified_at' => null,
+];
+
+$count = 0;
+$columns = '';
+$values = '';
+
+foreach (array_keys($params) as $key) {
+	if ($count++ > 0) {
+		$columns .= ',';
+		$values .= ',';
+	}
+	$columns .= $key;
+	$values .= ':' . $key;
+}
+
+$sql = 'insert into t_thread (' . $columns . ')values(' . $values . ')';
+var_dump($sql);
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);

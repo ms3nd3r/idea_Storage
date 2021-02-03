@@ -1,20 +1,20 @@
 <?php
-	$fp = fopen("../idea.txt", "r");				//「bbs.txt」を読み込み目的で開く
-	if($fp == false){							//開くのに失敗した場合
-		exit(0);								//実行を終了する
-	}
-	while(true){								//以下を繰り返す
-		$date = fgets($fp);						//$date ← ファイルから１行読み込む
-		$idea_form = fgets($fp);					//$idea_form ← ファイルから１行読み込む
-		
-		if(feof($fp) == true){					//ファイルが終わっていたら
-			break;								//ループを抜ける
-		}
-		
-		echo "<p id='idea_List'>";								//以下５行でクライアントにHTMLを出力
-		echo "<strong>{$date}</strong><br>";
-		echo "{$idea_form}<br><br>";
-		echo "</p>";
-	}
-	fclose($fp);								//ファイルを閉じる
-?>
+require './pdo.php';
+
+$sql = 'select * from t_thread order by t_thread_id';
+$stmt = $pdo->query($sql); //$pdo.query($sql);
+
+$result = $stmt->fetchall(); //$stmt.fechall();返却
+
+// echo '<pre>';
+// var_dump($result);
+// echo '</pre>';
+// exit;
+//デバッグ用
+
+foreach ($result as $array) {
+	echo "<p id='idea_List'>";								//以下５行でクライアントにHTMLを出力
+	echo "<strong>{$array['t_thread_created_at']}</strong><br>";
+	echo "{$array['t_thread_title']}<br><br>";
+	echo "</p>";
+}
