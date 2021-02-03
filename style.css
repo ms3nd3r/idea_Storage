@@ -51,12 +51,16 @@ header li{
     background-color: rgb(238, 255, 238);;
     border: black dashed 1px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 #idea_List a{
-    z-index: 2;
+    z-index: 1;
+    display: block
+}
 
+#idea_List p{
+    text-decoration: none;
 }
 
 #ideamain{

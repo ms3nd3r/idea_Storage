@@ -18,7 +18,10 @@
                         "search_form": search_form
                     }
                 );
-                return false;
+                return false;                       //このへんにクリックしたアイデアIDをcomment.phpに送るコードを書く
+            });
+            $('#goto_comment').on('click',() => {
+                console.log("クリックを確認");     //いずれはt_thread_idを取得できるように 
             });
         });
     </script>
