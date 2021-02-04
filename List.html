@@ -7,7 +7,12 @@
     <script src="src/jquery-3.5.1.min.js"></script>
     <script>
         $(() => {
-            $("#detail").load("src/List.php");	//List.phpを実行させ結果取得＆投稿一覧の欄に反映
+            $("#detail").load("src/List.php", () => {
+                $('.thread').on('click', function () {
+                    alert($(this).attr('value'));
+                    return false;
+                });
+            });	//List.phpを実行させ結果取得＆投稿一覧の欄に反映
             $('#searchBtn').on('click', () => {
                 //検索結果表示
                 $('#detail').empty();
@@ -16,18 +21,23 @@
                     "src/thread_search.php",							//プログラム名はform.php
                     {										//以下は送信データのセット
                         "search_form": search_form
+                    }, () => {
+                        $('.thread').on('click', function () {
+                            alert($(this).attr('value'));
+                            return false;
+                        });
                     }
                 );
                 return false;                       //このへんにクリックしたアイデアIDをcomment.phpに送るコードを書く
             });
-            goto_comment = () => {
-                console.log("クリックを確認");
-                return false;
-            }
-            //$('#goto_comment').on('click', () => {
-            //    console.log("クリックを確認");     //いずれはt_thread_idを取得できるように 
+            //goto_comment = () => {
+            //    alert($(this).val());
             //    return false;
-            //});
+            //}
+            $('#goto_comment').on('click', () => {
+                alert("クリックを確認");     //いずれはt_thread_idを取得できるように 
+                return false;
+            });
         });
     </script>
     <link rel="stylesheet" href="style.css">
