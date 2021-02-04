@@ -20,9 +20,14 @@
                 );
                 return false;                       //このへんにクリックしたアイデアIDをcomment.phpに送るコードを書く
             });
-            $('#goto_comment').on('click',() => {
-                console.log("クリックを確認");     //いずれはt_thread_idを取得できるように 
-            });
+            goto_comment = () => {
+                console.log("クリックを確認");
+                return false;
+            }
+            //$('#goto_comment').on('click', () => {
+            //    console.log("クリックを確認");     //いずれはt_thread_idを取得できるように 
+            //    return false;
+            //});
         });
     </script>
     <link rel="stylesheet" href="style.css">
