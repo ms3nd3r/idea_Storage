@@ -1,5 +1,5 @@
 <?php $title = "アイデア共有"; ?>
-<?php include("inc/header.php"); ?>
+<?php include("../inc/header.php"); ?>
 
     <div id="idea">
         <p id="ideamain"> 
@@ -16,7 +16,7 @@
     
     <div id="chat">
         <h2>チャット</h2>
-        <img id="accountimg" src="account.png" alt="" width="50px" ><p id="mycomment">2020/12/16 10:10 :読み手A <br>
+        <img id="accountimg" src="../img/account.png" alt="" width="50px" ><p id="mycomment">2020/12/16 10:10 :読み手A <br>
         こんなアイデアを出してみました、いかがでしょうか！<button id="yoki">良き:4</button></p>
         <img id="accountimg" src="account.png" alt="" width="50px"><p id="othercomment">2020/12/16 18:32 :書き手A <br>
         うおぉ！！いいですねっ！○○と△△の二次創作シチュエーションとして使っても大丈夫ですか？<button id="yoki">良き:1</button></p>

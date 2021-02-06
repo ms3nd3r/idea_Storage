@@ -29,7 +29,7 @@
 <body>
     <header>
         <ul>
-            <li id="title"><a id="header-link" href="index.html">idea_Storage</a></li>
+            <li id="title"><a id="header-link" href="../index.html">idea_Storage</a></li>
             <li id="sub"><a id="header-link" href="form.html">アイデアを投稿する</a></li>
         </ul>
     </header>
@@ -39,18 +39,57 @@
         if (isset($_GET['t_thread_id'])) {
             require 'pdo.php';
             $_thread_id = $_GET['t_thread_id'];
-            $sql = 'select t_thread_title from t_thread where t_thread_id = ?';
+            $sql = 'select * from t_thread,t_user where t_thread.t_thread_t_user_id=t_user.t_user_id and t_thread.t_thread_id = ?';
             $stmt = $pdo->prepare($sql); //プリペアードステートメント
             $stmt->bindValue(1, $_thread_id, PDO::PARAM_INT); //紐付け
             $stmt->execute(); //実行
 
             $result = $stmt->fetchall();
-            echo $result[0]['t_thread_title'];
+            // echo '<pre>';
+            // echo var_dump($result);
+            // echo '<pre>';
+            // exit;
+
+            $publisher = $result[0]['t_user_name'];
+            echo '<p id="ideamain"> 
+            ' . $result[0]['t_thread_title'] . '
+            </p>
+            <p id="postname"><a id="postname" href="#">' . $result[0]['t_user_name'] . '</a> さんの投稿</p>
+            <div id="count">
+            <button>すき</button>: 20
+            <button>つくりたい</button>: 2
+            閲覧数:149
+            </div>';
         }
         ?>
     </div>
     <div id="chat">
         <?php
+        if (isset($_GET['t_thread_id'])) {
+            $_thread_id = $_GET['t_thread_id'];
+            $sql = 'select * from t_user,t_thread,t_comment where t_comment.t_comment_t_thread_id=t_thread.t_thread_id and t_comment.t_comment_t_user_id=t_user.t_user_id and t_thread_id = ? order by t_comment.t_comment_created_at';
+            $stmt = $pdo->prepare($sql); //プリペアードステートメント
+            $stmt->bindValue(1, $_thread_id, PDO::PARAM_INT); //紐付け
+            $stmt->execute(); //実行
+
+            $result = $stmt->fetchall();
+            // echo '<pre>';
+            // echo var_dump($result);
+            // echo '<pre>';
+            // exit;
+
+            if (count($result)) {
+                foreach ($result as $array) {
+                    if ($publisher === $array['t_user_name']) {
+                        echo '<img id="accountimg" src="../img/account.png" alt="" width="50px" ><p id="mycomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
+                    } else {
+                        echo '<img id="accountimg" src="../img/account.png" alt="" width="50px" ><p id="othercomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
+                    }
+                }
+            }else{
+                echo '<img id="accountimg" src="../img/account.png" alt="" width="50px" ><p>コメントはありません!</p>';
+            }
+        }
         ?>
     </div>
     <form>
