@@ -3,7 +3,7 @@ require './pdo.php';
 
 //GETでスレッドIDを受け取る
 //$threadId = $_GET["t_thread_id"];
-$threadId = 1;
+
 //SQL文でスレッドとアイデアを結合してコメントを出力するスレッドテーブルに呼び出し
 
 //div id=ideaの部分には対応するアイデアを出力
