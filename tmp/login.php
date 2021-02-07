@@ -1,5 +1,5 @@
 <?php $title = "ログインページ"; ?>
-<?php include("inc/header.php"); ?>
+<?php include("../inc/header.php"); ?>
 
     <h2 id="new">ログインフォーム</h2>
     <div id="login_form">
