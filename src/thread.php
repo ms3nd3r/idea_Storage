@@ -7,17 +7,34 @@
     <script src="jquery-3.5.1.min.js"></script>
     <script>
         $(() => {
-            $("#content").load("src/thread.php"); //thread.phpを実行させ結果取得＆投稿一覧の欄に反映
+            /**
+             * Get the URL parameter value
+             *
+             * @param  name {string} パラメータのキー文字列
+             * @return  url {url} 対象のURL文字列（任意）
+             */
+            function getParam(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
             $('#sendBtn').on('click', () => {
                 //検索結果表示
-                var search_form = $("#search_form").val(); //comment ← 入力されたコメント
-                $('#detail').load( //サーバにデータ送信
-                    "src/thread_search.php", //プログラム名はcomment.php
+                var comment = $("#comment").val(); //comment ← 入力されたコメント
+                $.post( //サーバにデータ送信
+                    "comment.php", //プログラム名はcomment.php
                     { //以下は送信データのセット
-                        "comment": comment
+                        "t_thread_id": getParam('t_thread_id'),
+                        "comment": comment,
                     }
                 );
-                alert('コメントが送信されました！')
+                // alert('コメントが送信されました！');
+                location.reload();
                 return false;
             });
         });
@@ -30,7 +47,7 @@
     <header>
         <ul>
             <li id="title"><a id="header-link" href="../index.html">idea_Storage</a></li>
-            <li id="sub"><a id="header-link" href="form.html">アイデアを投稿する</a></li>
+            <li id="sub"><a id="header-link" href="../form.html">アイデアを投稿する</a></li>
         </ul>
     </header>
     <div id=content></div>
@@ -86,7 +103,7 @@
                         echo '<img id="accountimg" src="../img/account.png" alt="" width="50px" ><p id="othercomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
                     }
                 }
-            }else{
+            } else {
                 echo '<img id="accountimg" src="../img/account.png" alt="" width="50px" ><p>コメントはありません!</p>';
             }
         }
