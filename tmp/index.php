@@ -1,5 +1,5 @@
 <?php $title = "アイデアの貯蔵庫（仮）"; ?>
-<?php include("inc/header.php"); ?>
+<?php include("../inc/header.php"); ?>
 
     <div id="about"> 
         <h1>アイデアの貯蔵庫（仮）</h1>
