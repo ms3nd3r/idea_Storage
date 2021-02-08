@@ -47,7 +47,7 @@
     <header>
         <ul>
             <li id="title"><a id="header-link" href="../index.html">idea_Storage</a></li>
-            <li id="sub"><a id="header-link" href="form.html">アイデアを投稿する</a></li>
+            <li id="sub"><a id="header-link" href="../form.html">アイデアを投稿する</a></li>
         </ul>
     </header>
     <div id=content></div>
