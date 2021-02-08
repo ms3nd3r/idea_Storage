@@ -31,10 +31,10 @@
                     { //以下は送信データのセット
                         "t_thread_id": getParam('t_thread_id'),
                         "comment": comment,
-                    }
+                    },
+                    location.reload()
                 );
                 // alert('コメントが送信されました！');
-                location.reload();
                 return false;
             });
         });
