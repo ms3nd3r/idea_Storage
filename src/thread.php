@@ -98,7 +98,7 @@
         <button id="sendBtn" class="btn btn--orange btn--radius">投稿する</button>
     </form>
     <div id="signage">
-        <a href="List.html" class="btn btn--orange btn--radius">アイデアリストに戻る</a>
+        <a href="../List.html" class="btn btn--orange btn--radius">アイデアリストに戻る</a>
     </div>
 </body>
 
