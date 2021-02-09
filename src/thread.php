@@ -109,11 +109,13 @@
         }
         ?>
     </div>
-    <form>
-        <p>コメントを投稿する</p>
-        <textarea id="comment" cols="30" rows="5"></textarea>
-        <button id="sendBtn" class="btn btn--orange btn--radius">投稿する</button>
-    </form>
+    <div id=form>
+        <form>
+            <p>コメントを投稿する</p>
+            <textarea id="comment" cols="30" rows="5"></textarea>
+            <button id="sendBtn" class="btn btn--orange btn--radius">投稿する</button>
+        </form>
+    </div>
     <div id="signage">
         <a href="../List.html" class="btn btn--orange btn--radius">アイデアリストに戻る</a>
     </div>
