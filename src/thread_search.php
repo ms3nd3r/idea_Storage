@@ -25,7 +25,7 @@ $result = $stmt->fetchall(); //$stmt.fechall();返却
 //デバッグ用
 
 foreach ($result as $array) {
-    echo "<p id='idea_List'><a id='goto_comment' class='thread' href='src/thread.php?t_thread_id={$array['t_thread_id']}'>";                                //以下５行でクライアントにHTMLを出力
+    echo "<p id='idea_List'><a id='goto_comment' class='thread' href='idea.php?t_thread_id={$array['t_thread_id']}'>";                                //以下５行でクライアントにHTMLを出力
     echo "<strong>{$array['t_thread_created_at']}</strong><br>";
     echo "{$array['t_thread_title']}<br><br>";
     echo "</a></p>";
