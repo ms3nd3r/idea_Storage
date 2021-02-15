@@ -1,5 +1,5 @@
 <?php $title = "アイデア共有"; ?>
-<?php include("../inc/header.php"); ?>
+<?php include("header.php"); ?>
 
     <div id="idea">
         <p id="ideamain"> 

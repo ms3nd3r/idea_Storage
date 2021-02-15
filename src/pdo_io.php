@@ -1,5 +1,5 @@
 <?php
-require  "pdo.php";
+require  "./pdo.php";
 
 /* 
 データベース操作確認用
