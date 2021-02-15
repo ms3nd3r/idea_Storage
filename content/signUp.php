@@ -1,6 +1,10 @@
 <?php
 $title = "ログインページ";
-require "./inc/header.php";
+require "../inc/head.php";
+?>
+</header>
+<?php
+require "../inc/header.php";
 ?>
 
 <h2 id="new">ログインフォーム</h2>

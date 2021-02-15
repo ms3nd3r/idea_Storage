@@ -34,8 +34,8 @@
         <p>読む人から、共に作りあげる人に。<br>
             創る人から、心を満たす人に。</p>
         <div id="subscribe">
-            <a href="signUp.php" class="btn btn--orange btn--radius">登録する</a>
-            <a href="signIn.php" class="btn btn--orange btn--radius">ログインする</a>
+            <a href="./content/signUp.php" class="btn btn--orange btn--radius">登録する</a>
+            <a href="./content/signIn.php" class="btn btn--orange btn--radius">ログインする</a>
         </div>
     </div>
     <div id="explanation">

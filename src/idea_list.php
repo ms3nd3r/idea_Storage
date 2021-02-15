@@ -2,6 +2,11 @@
 
 require './pdo.php';
 
+/**
+ * 最初に表示されるアイデアのリストを表示させる
+ * ../content/idea_list.phpから
+ */
+
 $sql = 'select * from t_thread order by t_thread_id';
 $stmt = $pdo->query($sql); //$pdo.query($sql);
 
