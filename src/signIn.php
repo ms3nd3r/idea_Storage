@@ -1,11 +1,19 @@
 <?php
-require './pdo.php';
-
+require '../src/pdo.php';
 /**
- * アイデアの検索処理
- * ../content/idea_list.phpから
+ * ログイン処理
+ * ../content/signUp.phpから
  */
 
+var_dump($_POST);
+echo (password_hash($_POST['password'], PASSWORD_BCRYPT));
+exit;
+//デバッグ用
+
+if ($_POST['email'] !== '' && $_POST['password'] !== '') {
+    //処理
+}
+//とりあえずこぴーしてきた
 $keyword = explode(' ', $_POST['search_form']);
 $sql = 'select * from t_thread where '; //名前付きプレースホルダ
 $sql .= str_repeat('t_thread_title like ? and ', count($keyword) - 1);
