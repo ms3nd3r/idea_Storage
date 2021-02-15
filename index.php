@@ -46,7 +46,7 @@
         </p>
     </div>
     <div id="subscribe">
-        <a href="src/idea_list.php" class="btn btn--orange btn--radius">ENTER</a>
+        <a href="content/idea_list.php" class="btn btn--orange btn--radius">ENTER</a>
     </div>
 </body>
 
