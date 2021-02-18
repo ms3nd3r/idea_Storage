@@ -62,7 +62,8 @@ if(isset($_COOKIE['PHPSESSID'])){
         </p>
     </div>
     <div id="subscribe">
-        <a href="content/idea_list.php" class="btn btn--orange btn--radius">ENTER</a>
+        <a href="content/idea_list.php" class="btn btn--orange btn--radius">ログインせずにアイデアを見る</a>
+        <p><small>※ログインをしない場合、コメント投稿など一部の機能に制限が掛かります。</small></p>
     </div>
 </body>
 
