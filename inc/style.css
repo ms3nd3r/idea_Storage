@@ -304,3 +304,20 @@ a.btn--radius {
     right: 0;
     margin: auto;
 }
+
+#pleaseSubscribe{
+    padding: 200px 50px ;
+    background-color: rgb(210, 252, 238);
+    text-align: center;
+    font-size: 40px;
+  }
+
+#explain{
+    padding: 200px 50px ;
+    background-color: rgb(233, 255, 248);
+    font-size: 30px;
+}
+
+img.screenshot{
+    float: right;
+}
