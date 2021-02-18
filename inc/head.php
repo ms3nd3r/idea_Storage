@@ -1,3 +1,10 @@
+<?php
+//セッション
+if (isset($_COOKIE['PHPSESSID'])) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 

@@ -56,7 +56,7 @@
         if (isset($_GET['t_thread_id'])) {
             require 'pdo.php';
             $_thread_id = $_GET['t_thread_id'];
-            $sql = 'select * from t_thread,t_user where t_thread.t_thread_t_user_id=t_user.t_user_id and t_thread.t_thread_id = ?';
+            $sql = 'select * from t_thread,t_user where t_thread.t_thread_t_user_id = t_user.t_user_id and t_thread.t_thread_id = ?';
             $stmt = $pdo->prepare($sql); //プリペアードステートメント
             $stmt->bindValue(1, $_thread_id, PDO::PARAM_INT); //紐付け
             $stmt->execute(); //実行

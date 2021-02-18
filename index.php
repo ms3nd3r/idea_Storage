@@ -1,3 +1,10 @@
+<?php
+//セッション
+if(isset($_COOKIE['PHPSESSID'])){
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 
@@ -15,7 +22,16 @@
             <li id="title"><a id="header-link" href="index.php">idea_Storage</a></li>
             <li id="sub"><a id="header-link" href="content/form.php">アイデアを投稿したい</a></li>
             <li id="sub"><a id="header-link" href="content/idea_list.php">アイデアを見つけて創作したい</a></li>
-            <li id="account"><a href="content/mypage.php"><img src="img/account.png" alt="アイコン" width="50px"></a></li>
+            <li id="account">
+                <!-- phpセッションによるユーザー情報の取得 -->
+                <?php
+                if (isset($_SESSION)) {
+                    echo "<p>" . $_SESSION['user_name'] . "<a href='mypage.php'><img src='./img/account.png' alt='アイコン' width='50px'></a></p>";
+                } else {
+                    echo "<p>ゲスト<a href='mypage.php'><img src='./img/account.png' alt='アイコン' width='50px'></a></p>";
+                }
+                ?>
+            </li>
         </ul>
     </header>
     <script>
