@@ -193,13 +193,23 @@ footer a {
 }
 
 .btn--orange, a.btn--orange {
-    color: #fff;
+    color: rgb(255, 255, 255);
     background-color: #eb6100;
 }
 
 .btn--orange:hover, a.btn--orange:hover {
     color: #fff;
     background: #f56500;
+}
+
+.btn--green, a.btn--green {
+    color: rgb(255, 255, 255);
+    background-color: #d1ffb3;
+}
+
+.btn--green:hover, a.btn--green:hover {
+    color: #fff;
+    background: #d5ffde;
 }
 
 *, *:before, *:after {
