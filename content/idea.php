@@ -19,10 +19,10 @@ require '../inc/head.php';
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-
+        
         $('#sendBtn').on('click', () => {
             //検索結果表示
-            var comment = $("#comment").val(); //comment ← 入力されたコメント
+            let comment = $("#comment").val(); //comment ← 入力されたコメント
             $.post( //サーバにデータ送信
                 "../src/comment.php", //プログラム名はcomment.php
                 { //以下は送信データのセット
@@ -101,11 +101,22 @@ require '../inc/header.php';
     }
     ?>
 </div>
-<form>
-    <p>コメントを投稿する</p>
-    <textarea id="comment" cols="30" rows="5"></textarea>
-    <button id="sendBtn" class="btn btn--orange btn--radius">投稿する</button>
-</form>
+<?php
+//ログイン状態時のみ投稿可能
+if (isset($_SESSION)) {
+    echo '<div id="form">';
+    echo '<form>';
+    echo '<p>コメントを投稿する</p>';
+    echo '<textarea id="comment" cols="30" rows="5"></textarea>';
+    echo '<button id="sendBtn" class="btn btn--orange btn--radius">投稿する</button>';
+    echo '</form>';
+    echo '</div>';
+} else {
+    echo '<div id="form">';
+    echo '<p>コメントを投稿するにはログインが必要です</p>';
+    echo '</div>';
+}
+?>
 <div id="signage">
     <a href="idea_list.php" class="btn btn--orange btn--radius">アイデアリストに戻る</a>
 </div>

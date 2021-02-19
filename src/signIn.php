@@ -8,7 +8,7 @@ require '../src/pdo.php';
 // フォームに入力されているかどうか
 if ($_POST['email'] !== '' || $_POST['password'] !== '') {
     //password_verifyパラメータ取得
-    $pwd = $_POST['password'];
+    $pwd = $_POST['password'];   
 
     $sql = 'select * from t_user where t_user_email = :email';
     $stmt = $pdo->prepare($sql); //プリペアードステートメント

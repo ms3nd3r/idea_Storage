@@ -7,6 +7,10 @@
             <li id="account">
                 <!-- phpセッションによるユーザー情報の取得 -->
                 <?php
+                // セッション情報のデバッグ アイコン部分に表示
+                // echo '<pre>';
+                // var_dump($_SESSION);
+                // echo '</pre>';
                 if (isset($_SESSION)) {
                     echo "<p>" . $_SESSION['user_name'] . "<a href='mypage.php'><img src='../img/account.png' alt='アイコン' width='50px'></a></p>";
                 } else {
