@@ -11,7 +11,7 @@ require '../inc/head.php';
             $('#detail').empty();
             var search_form = $("#search_form").val(); //search_form ← 入力されたコメント
             $('#detail').load( //サーバにデータ送信
-                "../src/thread_search.php", //プログラム名はform.php
+                "../src/idea_search.php", //プログラム名はform.php
                 { //以下は送信データのセット
                     "search_form": search_form
                 }
