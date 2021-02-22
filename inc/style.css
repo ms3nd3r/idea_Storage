@@ -34,9 +34,15 @@ header li {
     font-weight: bold;
 }
 
+
+#Btn {
+    font-size:small;
+}
+
 #account {
     float: right;
 }
+
 
 #idea {
     margin: 100px 30px 30px 30px;
@@ -203,8 +209,9 @@ footer a {
 }
 
 .btn--green, a.btn--green {
+    font-size: small;
     color: rgb(255, 255, 255);
-    background-color: #d1ffb3;
+    background-color: white;
 }
 
 .btn--green:hover, a.btn--green:hover {

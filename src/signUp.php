@@ -7,7 +7,8 @@ require './pdo.php';
 
 //ログイン状態でないか？
 if (isset($_COOKIE['PHPSESSID'])) {
-    echo 'ログアウトしてください';
+    echo 'ログインした状態での新規登録は受け付けていません。3秒後にアイデアリストのページに遷移します。';
+    header('Refresh: 4 url=../content/idea_List.php');
     exit;
 }
 
@@ -20,10 +21,14 @@ if (
         !empty($_POST['user_password2']) &&
         $_POST['user_password'] === $_POST['user_password2'])
 ) {
-    echo 'もう一度入力しなおしてください';
+    echo '入力されていない項目が存在します。もう一度入力しなおしてください。3秒後に元のページに遷移します。';
+    header('Refresh: 4 url=../content/signUp.php');
+    /*
     echo '<pre>';
     var_dump($_POST);
     echo '</pre>';
+    ↑配列の確認用コードにつきコメントアウト
+    */
     exit;
 }
 
@@ -35,10 +40,14 @@ $stmt->bindValue('email', $_POST['user_email'], PDO::PARAM_STR);
 $stmt->execute(); //実行
 $result = $stmt->fetchall(); //$stmt.fechall();返却
 if (!empty($result)) {
-    echo '既に存在しています．';
+    echo ' このユーザ名は他のユーザに登録されています。申し訳ありませんがもう一度入力しなおしてください。3秒後に元のページに遷移します。';
+    header('Refresh: 4 url=../content/signUp.php');
+    /*
     echo '<pre>';
-    var_dump($result);
+    var_dump($_POST);
     echo '</pre>';
+    ↑配列の確認用コードにつきコメントアウト
+    */
     exit;
 }
 
@@ -74,4 +83,5 @@ $sql = 'insert into t_user (' . $columns . ')values(' . $values . ')';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
-echo '登録完了';
+echo 'ユーザ登録が完了しました。ご登録頂き誠にありがとうございます。idea_Storageをお楽しみ下さい。3秒後にアイデアリストのページに遷移します。';
+header('Refresh: 4 url=../content/idea_List.php');

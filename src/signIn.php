@@ -35,8 +35,10 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
 
         header('Location: ../content/idea_list.php');
     } else {
-        echo 'fail';
+        echo 'ユーザーネームかパスワードが間違っています。3秒後に元のページに遷移します。';
+        header('Refresh: 4 url=../content/signIn.php');
     }
 } else {
-    echo ('入力してください');
+    echo '入力されていない箇所が存在します。3秒後に元のページに遷移します。';
+    header('Refresh: 4 url=../content/signIn.php');
 }

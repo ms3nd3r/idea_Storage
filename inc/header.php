@@ -4,7 +4,6 @@
             <li id="title"><a id="header-link" href="../index.php">idea_Storage</a></li>
             <li id="sub"><a id="header-link" href="form.php">アイデアを投稿したい</a></li>
             <li id="sub"><a id="header-link" href="idea_list.php">アイデアを見つけて創作したい</a></li>
-            <li id="account">
                 <!-- phpセッションによるユーザー情報の取得 -->
                 <?php
                 // セッション情報のデバッグ アイコン部分に表示
