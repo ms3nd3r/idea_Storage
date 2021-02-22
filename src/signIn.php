@@ -6,13 +6,13 @@ require '../src/pdo.php';
  */
 
 // フォームに入力されているかどうか
-if ($_POST['email'] !== '' || $_POST['password'] !== '') {
+if (!empty($_POST['name']) && !empty($_POST['password'])) {
     //password_verifyパラメータ取得
     $pwd = $_POST['password'];   
 
-    $sql = 'select * from t_user where t_user_email = :email';
+    $sql = 'select * from t_user where t_user_name = :name';
     $stmt = $pdo->prepare($sql); //プリペアードステートメント
-    $stmt->bindValue('email', $_POST['email'], PDO::PARAM_STR);
+    $stmt->bindValue('name', $_POST['name'], PDO::PARAM_STR);
     $stmt->execute();
 
     $result = $stmt->fetchAll();

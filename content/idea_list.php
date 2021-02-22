@@ -11,7 +11,7 @@ require '../inc/head.php';
             $('#detail').empty();
             var search_form = $("#search_form").val(); //search_form ← 入力されたコメント
             $('#detail').load( //サーバにデータ送信
-                "../src/thread_search.php", //プログラム名はform.php
+                "../src/idea_search.php", //プログラム名はform.php
                 { //以下は送信データのセット
                     "search_form": search_form
                 }
@@ -25,10 +25,12 @@ require '../inc/head.php';
 <?php
 require '../inc/header.php';
 ?>
-<form>
-    <input id="search_form" type="text" placeholder="キーワードを入力">
-    <button id="searchBtn">検索</button>
-</form>
+<div id="search">
+    <form class="search_container">
+        <input id="search_form" type="text" placeholder="キーワードを入力">
+        <button id="searchBtn" style="float:right">検索</button>
+    </form>
+</div>
 <div id="view">
     <h1 id="new">投稿一覧</h1>
     <div id="detail"></div>
