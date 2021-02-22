@@ -33,7 +33,7 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
         $_SESSION['user_name'] = $result[0]['t_user_name'];
         var_dump($_SESSION);
 
-        header('Location: ../index.php');
+        header('Location: ../content/idea_list.php');
     } else {
         echo 'fail';
     }
