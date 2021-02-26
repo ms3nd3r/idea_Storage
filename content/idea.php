@@ -64,6 +64,7 @@ require '../inc/header.php';
             ' . $result[0]['t_thread_title'] . '
             </p>
             <p id="postname"><a id="postname" href="#">' . $result[0]['t_user_name'] . '</a> さんの投稿</p>
+            <span id="tag">タグ:#' . $result[0]["t_thread_tag"] . '</span>
             <div id="count">
             <button>すき</button>: 20
             <button>つくりたい</button>: 2
@@ -118,7 +119,7 @@ if (isset($_SESSION)) {
 }
 ?>
 <div id="signage">
-    <a href="idea_list.php" class="btn btn--orange btn--radius">アイデアリストに戻る</a>
+    <a href="idea_list.php" class="btn btn--orange btn--radius" id="not_form_btn">アイデアリストに戻る</a>
 </div>
 </body>
 

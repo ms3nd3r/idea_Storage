@@ -52,8 +52,8 @@ header li {
 }
 
 #idea_List {
-    margin: 15px 30px 10px 50px;
-    padding: 10px;
+    margin: 15px 30px 20px 50px;
+    padding: 10px 10px 15px 10px;
     background-color: rgb(238, 255, 238);
     ;
     border: black dashed 1px;
@@ -63,7 +63,10 @@ header li {
 
 #idea_List a {
     z-index: 1;
-    display: block
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 #idea_List p {
@@ -97,13 +100,13 @@ header li {
 }
 
 #form {
-    margin: 30px;
-    padding: 50px 0px 150px 50px;
+    margin: 50px;
+    padding: 50px 0px 80px 50px;
     background-color: rgb(238, 255, 238);
 }
 
 #login_form {
-    margin: 30px;
+    margin: 50px;
     padding: 50px 0px 150px 50px;
     background-color: rgb(238, 255, 238);
     text-align: center;
@@ -115,7 +118,7 @@ header li {
 }
 
 #new {
-    margin: 50px 40px 50px 50px;
+    margin: 20px 40px 50px 50px;
     font-size: x-large;
     border-bottom: 1px solid black;
 }
@@ -167,7 +170,7 @@ footer a {
 }
 
 #tag {
-    color: rgb(83, 83, 83);
+    color: rgb(136, 94, 123);
     text-decoration: none;
 }
 
@@ -255,6 +258,11 @@ a.btn--radius {
     border-radius: 100vh;
 }
 
+#not_form_btn{
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
 #about {
     padding: 200px 50px;
     background-color: rgb(210, 252, 238);
@@ -284,11 +292,15 @@ a.btn--radius {
     position: relative;
     border: 1px solid #999;
     padding: 3px 10px;
-    margin-left: 700px;
+    margin-left: 500px;
     border-radius: 20px;
     height: 2.3em;
     width: 520px;
     overflow: hidden;
+}
+
+input.search_container{
+    text-align: center;
 }
 
 .search_container input[type="text"] {

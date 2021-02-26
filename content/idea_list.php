@@ -30,13 +30,14 @@ require '../inc/header.php';
         <input id="search_form" type="text" placeholder="キーワードを入力">
         <button id="searchBtn" style="float:right">検索</button>
     </form>
+    <p>アイデアの文字列を検索する場合はそのまま、<br>タグを検索する場合は先頭に#を付けてください。</p>
 </div>
 <div id="view">
     <h1 id="new">投稿一覧</h1>
     <div id="detail"></div>
 </div>
 <div id="signage">
-    <a href="form.php" class="btn btn--orange btn--radius">アイデアを投稿する</a>
+    <a href="form.php" class="btn btn--orange btn--radius" id="not_form_btn">アイデアを投稿する</a>
 </div>
 </body>
 

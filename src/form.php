@@ -19,6 +19,7 @@ if (isset($_SESSION['user_id'])) {
 		't_thread_id' => null,
 		't_thread_t_user_id' => $user_id,
 		't_thread_title' => $_POST['idea_form'],
+		't_thread_tag' => $_POST['tag_form'], //新規でタグのカラムを追加しました。
 		't_thread_created_at' => null,
 		't_thread_modified_at' => null,
 	];
