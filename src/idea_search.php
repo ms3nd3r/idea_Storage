@@ -11,6 +11,7 @@ $tags = [];
 $keyword = [];
 foreach (explode(' ', $_POST['search_form']) as $index => $word) {
     if (strpos($word, '#') !== false) {
+        $word = str_replace('#', '', $word);
         $tags = explode('/', $word);
     } else {
         array_push($keyword, $word);
