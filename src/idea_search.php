@@ -6,15 +6,46 @@ require './pdo.php';
  * ../content/idea_list.phpから
  */
 
-$keyword = explode(' ', $_POST['search_form']);
+//タグと単語の分離
+$tags = [];
+$keyword = [];
+foreach (explode(' ', $_POST['search_form']) as $index => $word) {
+    if (strpos($word, '#') !== false) {
+        $tags = explode('/', $word);
+    } else {
+        array_push($keyword, $word);
+    }
+}
+// echo '<pre>';
+// var_dump($tags, $keyword);
+// echo '</pre>';
+// exit;
+//デバッグ用
+
 $sql = 'select * from t_thread where '; //名前付きプレースホルダ
-$sql .= str_repeat('t_thread_title like ? and ', count($keyword) - 1);
-$sql .= 't_thread_title like ?';
+if (count($keyword) >= 1) {
+    $sql .= str_repeat('t_thread_title like ? and ', count($keyword) - 1);
+    $sql .= 't_thread_title like ?';
+}
+if (count($tags) >= 1) {
+    if (count($keyword) >= 1) {
+        $sql .= ' and ';
+    }
+    $sql .= str_repeat('t_thread_tag like ? and ', count($tags) - 1);
+    $sql .= 't_thread_tag like ?';
+}
 
 $stmt = $pdo->prepare($sql); //プリペアードステートメント
+
 foreach ($keyword as $index => $word) {
     $stmt->bindValue($index + 1, '%' . $word . '%', PDO::PARAM_STR);
-} //紐付け
+}
+
+foreach ($tags as $index => $tag) {
+    $stmt->bindValue(count($keyword) + $index + 1, '%' . $tag . '%', PDO::PARAM_STR);
+}
+$tagsindex = 0;
+
 $stmt->execute(); //実行
 
 $result = $stmt->fetchall(); //$stmt.fechall();返却
