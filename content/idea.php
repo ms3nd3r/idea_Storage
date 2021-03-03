@@ -91,9 +91,9 @@ require '../inc/header.php';
         if (count($result)) {
             foreach ($result as $array) {
                 if ($publisher === $array['t_user_name']) {
-                    echo '<img id="accountimg" src=".'.$array['t_user_img'].'" alt="" width="50px" ><p id="mycomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
+                    echo '<img id="accountimg" src="../img/'.$array['t_user_name'].'.jpg" alt="" width="50px" ><p id="mycomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
                 } else {
-                    echo '<img id="accountimg" src=".'.$array['t_user_img'].'" alt="" width="50px" ><p id="othercomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
+                    echo '<img id="accountimg" src="../img/'.$array['t_user_name'].'.jpg" alt="" width="50px" ><p id="othercomment">' . $array['t_comment_created_at'] . ' :' . $array['t_user_name'] . ' <br>' . $array['t_comment_content'] . '<button id="yoki">良き:4</button></p>';
                 }
             }
         } else {
