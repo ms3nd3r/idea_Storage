@@ -12,7 +12,7 @@ require '../inc/header.php';
 <div id="main">
     <?php
     if (isset($_SESSION['user_name'])) {
-        echo '<dl id="user">
+        echo '<div id="user_info"><dl id="user">
         <dt>ユーザ名</dt>
         <dd>'.$_SESSION['user_name']. '</dd>
         <dt>アイコンの変更</dt>
@@ -23,7 +23,8 @@ require '../inc/header.php';
                 <input type="submit" value="アップロード">
             </form>
         </dd>
-        </dl>';
+        </dl>
+        </div>';
     } else {
         echo '<dl id="user">
         <dt>ユーザ名</dt>

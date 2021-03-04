@@ -353,3 +353,14 @@ input.search_container{
 img.screenshot{
     float: right;
 }
+
+#user_info{
+    background-color: rgb(238, 255, 238);
+    padding: 20px 0px;
+    margin: 0px 50px 30px;
+}
+
+dl#user dt dd{
+    padding-bottom: 30px;
+    font-weight: bolder;
+}
