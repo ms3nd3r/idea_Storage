@@ -83,5 +83,9 @@ $sql = 'insert into t_user (' . $columns . ')values(' . $values . ')';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
+
+//ユーザーアイコン初期設定
+copy('../img/account.png', '../img/' . $_POST['user_name'] . '.jpg');
+
 echo 'ユーザ登録が完了しました。ご登録頂き誠にありがとうございます。idea_Storageをお楽しみ下さい。3秒後にアイデアリストのページに遷移します。';
 header('Refresh: 4 url=../content/idea_List.php');

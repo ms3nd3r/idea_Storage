@@ -31,6 +31,7 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
         session_start();
         $_SESSION['user_id'] = $result[0]['t_user_id'];
         $_SESSION['user_name'] = $result[0]['t_user_name'];
+        $_SESSION['user_img'] = $result[0]['t_user_img'];
         var_dump($_SESSION);
 
         header('Location: ../content/idea_list.php');

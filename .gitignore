@@ -1,2 +1,9 @@
 env/
 idea.txt
+img/*
+!img/account.png
+!img/jitensya_cycling_man.png
+!img/paper.png
+!img/rock.png
+!img/scissors.png
+!img/screenshot.png                             
