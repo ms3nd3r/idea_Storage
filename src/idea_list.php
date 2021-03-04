@@ -19,8 +19,8 @@ $result = $stmt->fetchall(); //$stmt.fechall();返却
 
 foreach ($result as $array) {
 	echo "<div id='idea_List' style='white-space:pre-wrap;'><a id='goto_comment' class='thread' href='idea.php?t_thread_id={$array['t_thread_id']}'>";								//以下５行でクライアントにHTMLを出力
-	echo "<strong>{$array['t_thread_created_at']}</strong><br>";
-	echo htmlspecialchars($array['t_thread_title']) . "<br>";
+	echo "<small>{$array['t_thread_created_at']}</small><br><strong>";
+	echo htmlspecialchars($array['t_thread_title']) . "</strong><br>";
 	if ($array["t_thread_tag"] != null) {
 		echo "<span id='tag'>#{$array["t_thread_tag"]}</span>";
 	}

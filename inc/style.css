@@ -55,7 +55,6 @@ header li {
     margin: 15px 30px 20px 50px;
     padding: 10px 10px 15px 10px;
     background-color: rgb(238, 255, 238);
-    ;
     border: black dashed 1px;
     position: relative;
     z-index: 2;
@@ -71,6 +70,10 @@ header li {
 
 #idea_List p {
     text-decoration: none;
+}
+
+a#goto_comment strong {
+    text-align: center;
 }
 
 #ideamain {
