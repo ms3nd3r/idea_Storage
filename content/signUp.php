@@ -14,7 +14,7 @@ require "../inc/header.php";
         <p>Email:<input type="text" name="user_email" size="15"></p>
         <p>パスワード:<input type="text" name="user_password" size="15"></p>
         <p>パスワード(確認):<input type="text" name="user_password2" size="15"></p>
-        <div id="send"><input type="checkbox" name="" id="">次回からは入力を省略</div>
+        <div id="send"><input type="checkbox" name="cookieless" id="">次回からは入力を省略</div>
         <div id="send"><input type="submit" class="btn btn--orange btn--radius" value="登録"></div>
     </form>
 </div>

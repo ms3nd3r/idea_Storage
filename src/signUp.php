@@ -84,8 +84,18 @@ $sql = 'insert into t_user (' . $columns . ')values(' . $values . ')';
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 
-//ユーザーアイコン初期設定
+// ユーザーアイコン初期設定
 copy('../img/account.png', '../img/' . $_POST['user_name'] . '.jpg');
+
+$sql = 'select max(t_user_id) as t_user_id from t_user';
+$stmt = $pdo->query($sql);
+$stmt->execute();
+$result = $stmt->fetchAll();
+// セッションを開始してセッション変数に情報を格納
+session_start();
+$_SESSION['user_id'] = $result[0]['t_user_id'];
+$_SESSION['user_name'] = $_POST['user_name'];
+// var_dump($_SESSION);
 
 echo 'ユーザ登録が完了しました。ご登録頂き誠にありがとうございます。idea_Storageをお楽しみ下さい。3秒後にアイデアリストのページに遷移します。';
 header('Refresh: 4 url=../content/idea_List.php');
