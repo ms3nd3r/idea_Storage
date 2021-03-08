@@ -43,6 +43,10 @@ header li {
     float: right;
 }
 
+#account a{
+    text-decoration: none;
+    color: rgb(138, 190, 190);;
+}
 
 #idea {
     margin: 100px 30px 30px 30px;
@@ -73,7 +77,7 @@ header li {
 }
 
 a#goto_comment strong {
-    text-align: center;
+    margin: 0 auto;
 }
 
 #ideamain {
